@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Latihan 4.6 no.1 & 2</title>
+    
+    <link rel="stylesheet" href="tugas 4.6 latihan.css">
+</head>
+<body >
+    <h1>Monika Permata Putri (210601110013)</h1>
+    <h2>Konversi Nilai Angka ke Nilai Huruf</h2>
+
+    <label for="nilaiAngka">Masukkan nilai angka (0-100):</label>
+    <input type="number" id="nilaiAngka" min="0" max="100" placeholder="0" step="1">
+    <button onclick="konversiNilai()">Konversi</button>
+
+    <p>Nilai huruf: <span id="nilaiHuruf"></span></p>
+
+    <script>
+        function konversiNilai() {
+            const nilaiAngka = parseInt(document.getElementById("nilaiAngka").value);
+
+            let nilaiHuruf = '';
+            if (nilaiAngka >= 0 && nilaiAngka <= 40) {
+                nilaiHuruf = 'E';
+            } else if (nilaiAngka <= 55) {
+                nilaiHuruf = 'D';
+            } else if (nilaiAngka <= 60) {
+                nilaiHuruf = 'C';
+            } else if (nilaiAngka <= 65) {
+                nilaiHuruf = 'BC';
+            } else if (nilaiAngka <= 70) {
+                nilaiHuruf = 'B';
+            } else if (nilaiAngka <= 80) {
+                nilaiHuruf = 'AB';
+            } else if (nilaiAngka <= 100) {
+                nilaiHuruf = 'A';
+            } else {
+                nilaiHuruf = 'Nilai tidak valid';
+            }
+
+            document.getElementById("nilaiHuruf").textContent = nilaiHuruf;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Sederhana</title>
+</head>
+<body>
+    <h2>Kalkulator Sederhana</h2>
+    
+    <label for="bil1">Bilangan 1:</label>
+    <input type="text" id="bil1" placeholder="Masukkan bilangan pertama">
+
+    <label for="operator">Pilih operator:</label>
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+
+    <label for="bil2">Bilangan 2:</label>
+    <input type="text" id="bil2" placeholder="Masukkan bilangan kedua">
+
+    <button onclick="hitung()">Hitung</button>
+
+    <p>Hasil: <span id="hasil"></span></p>
+
+    <script>
+        function hitung() {
+            const bil1 = parseFloat(document.getElementById("bil1").value);
+            const bil2 = parseFloat(document.getElementById("bil2").value);
+            const operator = document.getElementById("operator").value;
+            let hasil;
+
+            if (operator === '+') {
+                hasil = bil1 + bil2;
+            } else if (operator === '-') {
+                hasil = bil1 - bil2;
+            } else if (operator === '*') {
+                hasil = bil1 * bil2;
+            } else if (operator === '/') {
+                if (bil2 === 0) {
+                    alert("Pembagian oleh 0 tidak diperbolehkan");
+                    return;
+                }
+                hasil = bil1 / bil2;
+            } else {
+                alert("Operator tidak valid");
+                return;
+            }
+
+            document.getElementById("hasil").textContent = hasil;
+        }
+    </script>
+</body>
+</html>
+
